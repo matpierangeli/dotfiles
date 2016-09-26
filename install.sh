@@ -1,12 +1,20 @@
-#!/bin/zsh
+#!/bin/bash
 
 CONSOLE_PREFIX="\t->"
 cd "$(dirname "$0")"
 
 #shell
-echo "$CONSOLE_PREFIX Copy .zshrc..."
-rm -f ~/.zshrc
-cp -f zshrc ~/.zshrc
+PROFILEFILENAME="~/.profile"
+echo "$CONSOLE_PREFIX Create .profile..."
+[[ ! -e $PROFILEFILENAME ]] && touch $PROFILEFILENAME
+if [[ -z $(cat $PROFILEFILENAME | grep -m 1 custom-box) ]]; then
+  cat << PROFILE >> $PROFILEFILENAME
+    #custom-box section - begin
+    . ~/.dotfiles/aliases
+    . ~/.dotfiles/dircolors
+    #custom-box section - end
+PROFILE
+fi
 
 #vim
 echo "$CONSOLE_PREFIX Install Solarized color scheme for Vim..."
