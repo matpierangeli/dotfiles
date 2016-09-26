@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env
 
 CONSOLE_PREFIX="\t->"
 cd "$(dirname "$0")"
 
 #shell
-PROFILEFILENAME="~/.profile"
+PROFILEFILENAME="$HOME/.profile"
 echo "$CONSOLE_PREFIX Create .profile..."
 [[ ! -e $PROFILEFILENAME ]] && touch $PROFILEFILENAME
 if [[ -z $(cat $PROFILEFILENAME | grep -m 1 custom-box) ]]; then
