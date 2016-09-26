@@ -1,6 +1,6 @@
 #!/usr/bin/env
 
-CONSOLE_PREFIX="\t->"
+CONSOLE_PREFIX="  ->"
 cd "$(dirname "$0")"
 
 #shell
